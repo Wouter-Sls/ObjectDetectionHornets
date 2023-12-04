@@ -4,6 +4,8 @@ from ultralytics import YOLO
 import shutil
 from moviepy.editor import *
 
+os.system('sudo ldconfig')
+
 #Function to convert avi to mp4
 def convert_avi_to_mp4(avi_path, mp4_path):
         # Load the AVI file
