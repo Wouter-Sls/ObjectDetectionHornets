@@ -4,7 +4,7 @@ from ultralytics import YOLO
 import shutil
 from moviepy.editor import *
 
-os.system('sudo apt-get update'
+os.system('sudo apt-get update')
 os.system('sudo apt-get install libgl1-mesa-glx')
 
 #Function to convert avi to mp4
