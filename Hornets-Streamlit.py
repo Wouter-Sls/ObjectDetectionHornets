@@ -1,5 +1,9 @@
-import streamlit as st
 import os
+
+os.system("apt-get update")
+os.system("apt-get install -y libgl1-mesa-glx")
+
+import streamlit as st
 from ultralytics import YOLO
 import shutil
 from moviepy.editor import *
