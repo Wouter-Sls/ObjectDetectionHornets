@@ -1,3 +1,4 @@
 ultralytics
 moviepy
 opencv-python
+libgl1-mesa-glx
