@@ -4,9 +4,6 @@ from ultralytics import YOLO
 import shutil
 from moviepy.editor import *
 
-os.system('sudo apt-get update')
-os.system('sudo apt-get install libgl1-mesa-glx')
-
 #Function to convert avi to mp4
 def convert_avi_to_mp4(avi_path, mp4_path):
         # Load the AVI file
@@ -21,7 +18,7 @@ st.title("Object Detection Hornets")
 st.subheader(':blue[_Created by Wouter Selis & Kieran Cornelissen_] :male-technologist:', divider='rainbow')
 
 
-st.write('The goal of this project is to make an Artificial Intelligence model to detect Asian hornets on a video using a Yolo library. To detect hornets we trained a YoloV8 model. Below, you can upload a video and set the threshold for detecting hornets. The application will then give back a video with hornet detections.')
+st.write('The goal of this project is to make an Artificial Intelligence model to detect Asian hornets on a video using a Yolo library. To detect hornets we trained a YoloV8 model. Below, you can upload a video or an image and set the threshold for detecting hornets. The application will then give back a video with hornet detections.')
 
 
 #Set your own value for the threshold
@@ -63,7 +60,7 @@ if uploaded_file is not None:
         mp4_file_path = f"./runs/detect/predict/{uploaded_file.name}"
 
         convert_avi_to_mp4(avi_file_path, mp4_file_path)
-    
+
     #Show image/video in streamlit
     if uploaded_file.type.split("/")[-1] in (["png","jpg", "jpeg"]): 
         st.image(f"./runs/detect/predict/{uploaded_file.name}")
@@ -71,14 +68,14 @@ if uploaded_file is not None:
         st.video(f"./runs/detect/predict/{uploaded_file.name}")
 
     
-    #################### Delete images and videos #######################
-    try:
-        # Delete the directory and its contents
-        shutil.rmtree('./runs/detect/predict')
-        shutil.rmtree('./videos')
-        shutil.rmtree('./images')
-    except: 
-        print("Path './runs/detect/predict' not found.")
+    # #################### Delete images and videos #######################
+    # try:
+    #     # Delete the directory and its contents
+    #     shutil.rmtree('./runs/detect/predict')
+    #     shutil.rmtree('./videos')
+    #     shutil.rmtree('./images')
+    # except: 
+    #     print("Path './runs/detect/predict' not found.")
 
 
 
