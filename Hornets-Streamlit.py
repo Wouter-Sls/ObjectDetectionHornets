@@ -49,13 +49,15 @@ if uploaded_file is not None:
     with open(filename, 'wb') as f:
         f.write(uploaded_file.getvalue())
 
+    with st.spinner('Please wait while we work our magic.'):
     ###################### Test model with uploaded file ################
-    model = YOLO("yoloV8allFotosSmall.pt")
-    result=model.predict(conf=threshold,source=path, save=True)
+        model = YOLO("yoloV8allFotosSmall.pt")
+        result=model.predict(conf=threshold,source=path, save=True)
 
+    st.success('Done!')
 
     #Convert avi file to mp4 to display in streamlit
-    if __name__ == "__main__":
+    if os.path.exists(f"./runs/detect/predict/{uploaded_file.name.split('.')[0]}.avi"):
         avi_file_path = f"./runs/detect/predict/{uploaded_file.name.split('.')[0]}.avi"
         mp4_file_path = f"./runs/detect/predict/{uploaded_file.name}"
 
@@ -67,15 +69,23 @@ if uploaded_file is not None:
     else:
         st.video(f"./runs/detect/predict/{uploaded_file.name}")
 
+
+    import time
+
+    # Add a 2-second delay
+    st.text("Waiting for 2 seconds...")
+    time.sleep(2)
     
-    # #################### Delete images and videos #######################
-    # try:
-    #     # Delete the directory and its contents
-    #     shutil.rmtree('./runs/detect/predict')
-    #     shutil.rmtree('./videos')
-    #     shutil.rmtree('./images')
-    # except: 
-    #     print("Path './runs/detect/predict' not found.")
+    #################### Delete images and videos #######################
+
+    if os.path.exists('./runs/detect/predict'):
+        shutil.rmtree('./runs/detect/predict')
+
+    if os.path.exists('./images'):
+        shutil.rmtree('./images')
+
+    if os.path.exists('./videos'):
+        shutil.rmtree('./videos')
 
 
 
