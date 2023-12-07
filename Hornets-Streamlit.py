@@ -52,10 +52,12 @@ if uploaded_file is not None:
     with open(filename, 'wb') as f:
         f.write(uploaded_file.getvalue())
 
+    with st.spinner('Please wait while we work our magic.'):
     ###################### Test model with uploaded file ################
-    model = YOLO("yoloV8allFotosSmall.pt")
-    result=model.predict(conf=threshold,source=path, save=True)
+        model = YOLO("yoloV8allFotosSmall.pt")
+        result=model.predict(conf=threshold,source=path, save=True)
 
+    st.success('Done!')
 
     #Convert avi file to mp4 to display in streamlit
     if os.path.exists(f"./runs/detect/predict/{uploaded_file.name.split('.')[0]}.avi"):
