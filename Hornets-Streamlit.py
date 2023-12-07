@@ -51,7 +51,7 @@ if uploaded_file is not None:
     with st.spinner('Please wait while we work our magic.'):
     ###################### Test model with uploaded file ################
         model = YOLO("yoloV8allFotosSmall.pt")
-        result=model.predict(conf=threshold, source=path, save=True)
+        model.predict(conf=threshold, source=path, save=True)
 
     st.success('Done!')
 
