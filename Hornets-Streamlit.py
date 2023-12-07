@@ -4,9 +4,6 @@ from ultralytics import YOLO
 import shutil
 from moviepy.editor import *
 
-os.system('sudo apt-get update')
-os.system('sudo apt-get install libgl1-mesa-glx')
-
 #Function to convert avi to mp4
 def convert_avi_to_mp4(avi_path, mp4_path):
         # Load the AVI file
@@ -31,7 +28,6 @@ threshold = st.slider("Set threshold:", 0.1, 0.5, 0.3, step=0.1, key="myslider")
 uploaded_file = st.file_uploader("Choose a video file", type=None)
 
 if uploaded_file is not None:
-
     ############# Save file in video or image folder ###################
     if uploaded_file.type.split("/")[-1] in (["png","jpg", "jpeg"]): 
        
@@ -55,7 +51,7 @@ if uploaded_file is not None:
     with st.spinner('Please wait while we work our magic.'):
     ###################### Test model with uploaded file ################
         model = YOLO("yoloV8allFotosSmall.pt")
-        result=model.predict(conf=threshold,source=path, save=True)
+        result=model.predict(conf=threshold, source=path, save=True)
 
     st.success('Done!')
 
