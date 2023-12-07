@@ -21,7 +21,7 @@ st.title("Object Detection Hornets")
 st.subheader(':blue[_Created by Wouter Selis & Kieran Cornelissen_] :male-technologist:', divider='rainbow')
 
 
-st.write('The goal of this project is to make an Artificial Intelligence model to detect Asian hornets on a video using a Yolo library. To detect hornets we trained a YoloV8 model. You can upload a video with hornets and the application will give back a video with detections.')
+st.write('The goal of this project is to make an Artificial Intelligence model to detect Asian hornets on a video using a Yolo library. To detect hornets we trained a YoloV8 model. Below, you can upload a video and set the threshold for detecting hornets. The application will then give back a video with hornet detections.')
 
 
 #Set your own value for the threshold
