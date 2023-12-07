@@ -58,7 +58,7 @@ if uploaded_file is not None:
 
 
     #Convert avi file to mp4 to display in streamlit
-    if __name__ == "__main__":
+    if os.path.exists(f"./runs/detect/predict/{uploaded_file.name.split('.')[0]}.avi"):
         avi_file_path = f"./runs/detect/predict/{uploaded_file.name.split('.')[0]}.avi"
         mp4_file_path = f"./runs/detect/predict/{uploaded_file.name}"
 
@@ -72,13 +72,15 @@ if uploaded_file is not None:
 
     
     #################### Delete images and videos #######################
-    try:
-        # Delete the directory and its contents
+
+    if os.path.exists('./runs/detect/predict'):
         shutil.rmtree('./runs/detect/predict')
-        shutil.rmtree('./videos')
+
+    if os.path.exists('./images'):
         shutil.rmtree('./images')
-    except: 
-        print("Path './runs/detect/predict' not found.")
+
+    if os.path.exists('./videos'):
+        shutil.rmtree('./videos')
 
 
 
