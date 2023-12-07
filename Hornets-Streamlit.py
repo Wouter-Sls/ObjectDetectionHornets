@@ -20,6 +20,10 @@ def convert_avi_to_mp4(avi_path, mp4_path):
 st.title("Object Detection Hornets")
 st.subheader(':blue[_Created by Wouter Selis & Kieran Cornelissen_] :male-technologist:', divider='rainbow')
 
+
+st.write('The goal of this project is to make an Artificial Intelligence model to detect Asian hornets on a video using a Yolo library. To detect hornets we trained a YoloV8 model. You can upload a video with hornets and the application will give back a video with detections.')
+
+
 #Set your own value for the threshold
 threshold = st.slider("Set threshold:", 0.1, 0.5, 0.3, step=0.1, key="myslider")
 
