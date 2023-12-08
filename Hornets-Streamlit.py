@@ -72,7 +72,6 @@ if uploaded_file is not None:
     import time
 
     # Add a 2-second delay
-    st.text("Waiting for 2 seconds...")
     time.sleep(2)
     
     #################### Delete images and videos #######################
