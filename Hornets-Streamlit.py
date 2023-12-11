@@ -25,7 +25,7 @@ st.write('The goal of this project is to make an Artificial Intelligence model t
 threshold = st.slider("Set threshold:", 0.1, 0.5, 0.3, step=0.1, key="myslider")
 
 #Upload video or image
-uploaded_file = st.file_uploader("Choose a video file", type=None)
+uploaded_file = st.file_uploader("Choose an image or video file", type=None)
 
 if uploaded_file is not None:
     ############# Save file in video or image folder ###################
